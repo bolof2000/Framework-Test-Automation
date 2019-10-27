@@ -9,13 +9,22 @@ public class HomePage {
     public HomePage(WebDriver driver){
         this.driver = driver;
     }
-    private By formAuthenticationLink = By.linkText("Form Authentication");
-
+       public void clickLinks(String link){
+        driver.findElement(By.linkText(link)).click();
+    }
     public LoginPage clickFormAuthentication(){
-
-        driver.findElement(formAuthenticationLink).click();
+        clickLinks("Form Authentication");
         return new LoginPage(driver);
+    }
 
+    public DropDownListPage clickDropdown(){
+        clickLinks("Dropdown");
+        return new DropDownListPage(driver);
+    }
+    public ForgotPasswordPage clickForgotPassword(){
+
+        clickLinks("Forgot Password");
+        return new ForgotPasswordPage(driver);
     }
 
 }
